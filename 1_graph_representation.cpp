@@ -1,0 +1,27 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void addEdge(vector<int> adj[], int source, int destination){
+    adj[source].push_back(destination);
+    adj[destination].push_back(source);
+}
+
+void printGraph(vector<int> adj[], int size){
+    for(int i = 0; i<size; i++){
+        cout<<i<<"-> ";
+        for(auto it: adj[i]){
+            cout<<it<<" ";
+        }
+        cout<<"\n";
+    }
+}
+
+int main(){
+    vector<int> adj[5];
+    addEdge(adj, 0, 3);
+    addEdge(adj, 2, 1);
+    addEdge(adj, 3, 2);
+    printGraph(adj, 5);
+    return 0;
+}
